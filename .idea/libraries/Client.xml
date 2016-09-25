@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Client">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/Client.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/EmacspeakServer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/FreeTTSEmacspeakServer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/FreeTTSHelloWorld.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/HelloWorld.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/JTime.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/MixedVoices.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/Player.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/Server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/WebStartClock.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
