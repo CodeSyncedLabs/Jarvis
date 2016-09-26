@@ -9,6 +9,9 @@ import labs.codesynced.project0.weather.info.YahooWeatherService;
 import labs.codesynced.project0.weather.info.data.Channel;
 import labs.codesynced.project0.weather.info.data.unit.DegreeUnit;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Wylan Shoemaker on 9/25/2016.
  */
@@ -18,6 +21,7 @@ public class Speak
     private static final String VOICE_NAME = "kevin16";
     private static String date;
     private static Weather weather;
+    private static final String NAME = System.getProperty("user.name");
 
     public static void begin() throws Exception
     {
@@ -41,13 +45,31 @@ public class Speak
         Channel channel = service.getForecast("2504627", DegreeUnit.FAHRENHEIT);
 
         StringBuilder builder = new StringBuilder();
-        builder.append("Good Morning, " + System.getProperty("user.name").toString().split("\\s+")[0] + ". ");
+        builder.append("Good " + refractorTime() + ", " + NAME.split("\\s+")[0] + ". ");
         builder.append("It is currently " + date + ". \n");
         builder.append(MakeReadableWeather.readItem(channel.getItem()) + "\n");
         builder.append(MakeReadableWeather.readAstronomy(channel.getAstronomy()) + "\n");
         builder.append(MakeReadableWeather.readAtmosphere(channel.getAtmosphere()));
         System.out.println(builder.toString());
         return builder.toString();
+    }
+
+    private static String refractorTime()
+    {
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("k, mm a"); //k = 1-23
+        int hour = Integer.parseInt(format.format(date).split(",")[0]);
+
+        if(hour <= 11)
+        {
+            return "Morning";
+        } else if(hour <= 16)
+        {
+            return "Afternoon";
+        } else if(hour <= 19)
+        {
+            return "Evening";
+        } else return "Night";
     }
 
     private static void obtainDate()

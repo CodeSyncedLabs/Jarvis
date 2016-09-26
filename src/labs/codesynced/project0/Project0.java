@@ -1,5 +1,8 @@
 package labs.codesynced.project0;
 
+/**
+ * Created by Wylan Shoemaker on 9/25/2016.
+ */
 public class Project0 implements Runnable
 {
 
@@ -8,7 +11,9 @@ public class Project0 implements Runnable
     {
         try {
             Speak.begin();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args)
