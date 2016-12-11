@@ -11,6 +11,7 @@ import labs.codesynced.project0.weather.info.data.unit.DegreeUnit;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  * Created by Wylan Shoemaker on 9/25/2016.
@@ -29,14 +30,21 @@ public class Speak
         obtainDate();
 
         String text = build();
-
+        
         Voice voice;
         VoiceManager voiceManager = VoiceManager.getInstance();
         voice = voiceManager.getVoice(VOICE_NAME);
         voice.allocate();
         try {
-            voice.speak(text);
+            Scanner scanner = new Scanner(System.in);
+            if(scanner.next().toString().equalsIgnoreCase("start"))
+            {
+                voice.speak(text);
+                System.out.println(text);
+            }
         } catch(Exception e) {}
+
+        System.err.println("Terminated.");
     }
 
     private static String build() throws Exception
@@ -50,7 +58,7 @@ public class Speak
         builder.append(MakeReadableWeather.readItem(channel.getItem()) + "\n");
         builder.append(MakeReadableWeather.readAstronomy(channel.getAstronomy()) + "\n");
         builder.append(MakeReadableWeather.readAtmosphere(channel.getAtmosphere()));
-        System.out.println(builder.toString());
+        //System.out.println(builder.toString());
         return builder.toString();
     }
 

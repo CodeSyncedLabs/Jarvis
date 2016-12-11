@@ -36,4 +36,9 @@ public class Alarm
         return time.getConvention();
     }
 
+    public Alarm getAlarm()
+    {
+        return this;
+    }
+
 }
